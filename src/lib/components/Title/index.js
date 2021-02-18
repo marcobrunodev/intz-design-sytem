@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const IntzTitle = styled.h1`
+const Title = styled.h1`
   font-size: 2rem;
   color: var(--color-intz);
   text-align: center;
@@ -8,4 +8,4 @@ const IntzTitle = styled.h1`
   letter-spacing: 0.2rem;
 `
 
-export default IntzTitle
+export default Title

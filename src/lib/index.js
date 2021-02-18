@@ -1,5 +1,5 @@
 import Logo from './components/Logo'
-import IntzTitle from './components/IntzTitle'
+import Title from './components/Title'
 import Avatar from './components/Avatar'
 
-export { Logo, IntzTitle, Avatar }
+export { Logo, Title, Avatar }
