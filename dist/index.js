@@ -3,6 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "Styles", {
+  enumerable: true,
+  get: function get() {
+    return _Styles.default;
+  }
+});
 Object.defineProperty(exports, "Logo", {
   enumerable: true,
   get: function get() {
@@ -21,12 +27,14 @@ Object.defineProperty(exports, "Avatar", {
     return _Avatar.default;
   }
 });
-Object.defineProperty(exports, "Styles", {
+Object.defineProperty(exports, "Sponsor", {
   enumerable: true,
   get: function get() {
-    return _Styles.default;
+    return _Sponsor.default;
   }
 });
+
+var _Styles = _interopRequireDefault(require("./Styles"));
 
 var _Logo = _interopRequireDefault(require("./components/Logo"));
 
@@ -34,6 +42,6 @@ var _Title = _interopRequireDefault(require("./components/Title"));
 
 var _Avatar = _interopRequireDefault(require("./components/Avatar"));
 
-var _Styles = _interopRequireDefault(require("./Styles"));
+var _Sponsor = _interopRequireDefault(require("./components/Sponsor"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
