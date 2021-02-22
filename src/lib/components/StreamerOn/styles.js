@@ -2,7 +2,10 @@ import styled from 'styled-components'
 import Avatar from '../Avatar'
 import iconLive from '../../assets/images/live.png'
 
-export const Streamer = styled(Avatar)``
+export const Streamer = styled(Avatar)`
+  box-sizing: border-box;
+  width: 100%;
+`
 
 export const Live = styled.dd`
   display: flex;
@@ -26,4 +29,5 @@ export const StreamerOnStyle = styled.dl`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 7rem;
 `
