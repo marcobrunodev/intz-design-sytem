@@ -5,5 +5,6 @@ import Avatar from './components/Avatar'
 import Sponsor from './components/Sponsor'
 import StreamerOn from './components/StreamerOn'
 import MiniLive from './components/MiniLive'
+import Carousel from './components/Carousel'
 
-export { Styles, Logo, Title, Avatar, Sponsor, StreamerOn, MiniLive }
+export { Styles, Logo, Title, Avatar, Sponsor, StreamerOn, MiniLive, Carousel }

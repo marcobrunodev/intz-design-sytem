@@ -11,24 +11,39 @@ import {
   WrapperScreen
 } from './styles'
 
-function MiniLive({ avatar, altAvatar, screen, altScreen, active }) {
+function MiniLive({
+  avatar,
+  altAvatar,
+  screen,
+  altScreen,
+  active,
+  left,
+  right,
+  title,
+  name,
+  game,
+  onClick
+}) {
   return (
-    <MiniLiveStyle active={active}>
+    <MiniLiveStyle active={active} left={left} right={right} onClick={onClick}>
       <WrapperScreen>
         <StreamerOn avatar={avatar} alt={altAvatar} />
         <Screen src={screen} alt={altScreen} />
       </WrapperScreen>
       <Titles>
-        <Title>Plataforma para lives - !Alura</Title>
-        <Name>marcobrunodev</Name>
-        <Game>Science & Technology</Game>
+        <Title>{title}</Title>
+        <Name>{name}</Name>
+        <Game>{game}</Game>
       </Titles>
     </MiniLiveStyle>
   )
 }
 
 MiniLive.defaultProps = {
-  active: false
+  active: false,
+  left: false,
+  right: false,
+  onClick: () => {}
 }
 
 MiniLive.propTypes = {
@@ -36,7 +51,13 @@ MiniLive.propTypes = {
   altAvatar: PropTypes.string.isRequired,
   screen: PropTypes.string.isRequired,
   altScreen: PropTypes.string.isRequired,
-  active: PropTypes.bool
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  game: PropTypes.string.isRequired,
+  active: PropTypes.bool,
+  left: PropTypes.bool,
+  right: PropTypes.bool,
+  onClick: PropTypes.func
 }
 
 export default MiniLive

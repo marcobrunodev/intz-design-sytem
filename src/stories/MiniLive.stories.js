@@ -24,5 +24,8 @@ Active.args = {
   altAvatar: 'Avatar do Marco Bruno',
   screen,
   altScreen: 'Live do Marco Bruno',
+  title: 'Plataforma feliz de live !Alura !intz',
+  name: 'marcobrunodev',
+  game: 'Science & Technology',
   active: true
 }
