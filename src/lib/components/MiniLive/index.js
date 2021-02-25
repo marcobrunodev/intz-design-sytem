@@ -16,16 +16,14 @@ function MiniLive({
   altAvatar,
   screen,
   altScreen,
-  active,
-  left,
-  right,
+  position,
   title,
   name,
   game,
   onClick
 }) {
   return (
-    <MiniLiveStyle active={active} left={left} right={right} onClick={onClick}>
+    <MiniLiveStyle position={position} onClick={onClick}>
       <WrapperScreen>
         <StreamerOn avatar={avatar} alt={altAvatar} />
         <Screen src={screen} alt={altScreen} />
@@ -40,9 +38,7 @@ function MiniLive({
 }
 
 MiniLive.defaultProps = {
-  active: false,
-  left: false,
-  right: false,
+  position: '',
   onClick: () => {}
 }
 
@@ -54,9 +50,7 @@ MiniLive.propTypes = {
   title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   game: PropTypes.string.isRequired,
-  active: PropTypes.bool,
-  left: PropTypes.bool,
-  right: PropTypes.bool,
+  position: PropTypes.string,
   onClick: PropTypes.func
 }
 

@@ -40,6 +40,26 @@ const lives = [
     title: '2 - Plataforma de live !Alura !intz',
     name: 'marcobrunodev',
     game: 'Science & Technology'
+  },
+  {
+    url: 'https://twitch.tv/giizaa',
+    avatar,
+    altAvatar: 'Avatar do Marco Bruno',
+    screen,
+    altScreen: 'Tela do Marco Bruno',
+    title: '3 - Plataforma de live !Alura !intz',
+    name: 'marcobrunodev',
+    game: 'Science & Technology'
+  },
+  {
+    url: 'https://twitch.tv/giizaa',
+    avatar,
+    altAvatar: 'Avatar do Marco Bruno',
+    screen,
+    altScreen: 'Tela do Marco Bruno',
+    title: '4 - Plataforma de live !Alura !intz',
+    name: 'marcobrunodev',
+    game: 'Science & Technology'
   }
 ]
 

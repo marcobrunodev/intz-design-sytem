@@ -68,11 +68,11 @@ export const WrapperScreen = styled.div`
   }
 `
 
-const hasActive = ({ active }) =>
-  active &&
+const hasActive = ({ position }) =>
+  position === 'active' &&
   css`
     z-index: 10;
-    transform: scale(1);
+    transform: scale(1) translate(0);
 
     & > ${WrapperScreen}::before {
       transform: skew(-26deg) translateX(-50%);
@@ -87,33 +87,48 @@ const hasActive = ({ active }) =>
     }
   `
 
-const hasRight = ({ right, left }) => {
-  console.log('left', left)
+const hasRight = ({ position }) =>
+  position === 'right' &&
+  css`
+    transform: scale(0.8) translate(30%, -5%);
 
-  return (
-    (right || left) &&
-    css`
-      ${right && 'transform: scale(0.8) translate(100%, -5%)'};
-      ${left && 'transform: scale(0.8) translate(-100%, -5%)'};
+    & > ${Titles} {
+      opacity: 0;
+    }
 
-      & > ${Titles} {
-        opacity: 0;
+    & > ${WrapperScreen} {
+      &::before {
+        background-color: var(--color-success);
       }
+      border-color: var(--color-success);
+    }
+  `
 
-      & > ${WrapperScreen} {
-        border-color: var(--color-success);
+const hasLeft = ({ position }) =>
+  position === 'left' &&
+  css`
+    transform: scale(0.8) translate(-30%, -5%);
+
+    & > ${Titles} {
+      opacity: 0;
+    }
+
+    & > ${WrapperScreen} {
+      &::before {
+        background-color: var(--color-live);
       }
-    `
-  )
-}
+      border-color: var(--color-live);
+    }
+  `
 
 export const MiniLiveStyle = styled.article`
   position: absolute;
   max-width: 285px;
   cursor: pointer;
-  transform: scale(0.2);
+  transform: scale(0.2) translate(0);
   transition: transform 200ms ease-in-out;
 
   ${hasRight};
+  ${hasLeft};
   ${hasActive};
 `

@@ -3,52 +3,49 @@ import PropTypes from 'prop-types'
 import MiniLive from '../MiniLive'
 import { CarouselStyle } from './styles'
 
-function arrayRotate(arr, reverse) {
-  if (reverse) arr.unshift(arr.pop())
-  else arr.push(arr.shift())
+// function clickLeft = (lives, index) => {
+//   return lives.
+// }
 
-  return arr
+function startPositions(lives) {
+  const positions = ['left', 'active', 'right']
+
+  return lives.map((live, index) => ({ ...live, position: positions[index] }))
 }
 
 function Carousel({ lives }) {
-  const [livesState, setLivesState] = useState(lives)
+  const [livesState, setLivesState] = useState(startPositions(lives))
+  const lastPosition = livesState.length - 1
+
+  const getIndexLeft = (index) => (index === 0 ? lastPosition : index - 1)
+
+  const getIndexRight = (index) => (index + 1) % livesState.length
 
   const handleClick = (event, index) => {
     setLivesState((lives) => {
-      const goLives =
-        (index === 0 && arrayRotate(lives, true)) ||
-        (index === 2 && arrayRotate(lives, false)) ||
-        lives
+      const goLives = lives.map((live) => {
+        delete live.position
 
-      console.log('goLives', goLives)
+        return live
+      })
 
-      return goLives.map((live, index) => ({
-        ...live,
-        left: index === 0,
-        active: index === 1,
-        right: index === 2
-      }))
+      goLives[index].position = 'active'
+      goLives[getIndexRight(index)].position = 'right'
+      goLives[getIndexLeft(index)].position = 'left'
+
+      return goLives
     })
   }
 
   return (
     <CarouselStyle>
-      {livesState.map((live, index) => {
-        const goLive = {
-          ...live,
-          left: index === 0,
-          active: index === 1,
-          right: index === 2
-        }
-
-        return (
-          <MiniLive
-            key={live.url}
-            {...goLive}
-            onClick={(event) => handleClick(event, index)}
-          />
-        )
-      })}
+      {livesState.map((live, index) => (
+        <MiniLive
+          key={live.url}
+          {...live}
+          onClick={(event) => handleClick(event, index)}
+        />
+      ))}
     </CarouselStyle>
   )
 }
