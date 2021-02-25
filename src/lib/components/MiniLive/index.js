@@ -20,10 +20,11 @@ function MiniLive({
   title,
   name,
   game,
-  onClick
+  onClick,
+  reference
 }) {
   return (
-    <MiniLiveStyle position={position} onClick={onClick}>
+    <MiniLiveStyle position={position} onClick={onClick} ref={reference}>
       <WrapperScreen>
         <StreamerOn avatar={avatar} alt={altAvatar} />
         <Screen src={screen} alt={altScreen} />
@@ -39,7 +40,8 @@ function MiniLive({
 
 MiniLive.defaultProps = {
   position: '',
-  onClick: () => {}
+  onClick: () => {},
+  reference: {}
 }
 
 MiniLive.propTypes = {
@@ -51,7 +53,8 @@ MiniLive.propTypes = {
   name: PropTypes.string.isRequired,
   game: PropTypes.string.isRequired,
   position: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  reference: PropTypes.object
 }
 
 export default MiniLive
