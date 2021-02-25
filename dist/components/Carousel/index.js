@@ -41,9 +41,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// function clickLeft = (lives, index) => {
-//   return lives.
-// }
 function startPositions(lives) {
   var positions = ['left', 'active', 'right'];
   return lives.map(function (live, index) {
@@ -61,7 +58,16 @@ function Carousel(_ref) {
       livesState = _useState2[0],
       setLivesState = _useState2[1];
 
+  var _useState3 = (0, _react.useState)(0),
+      _useState4 = _slicedToArray(_useState3, 2),
+      height = _useState4[0],
+      setHeight = _useState4[1];
+
+  var itemActive = (0, _react.useRef)(null);
   var lastPosition = livesState.length - 1;
+  (0, _react.useEffect)(function () {
+    setHeight(itemActive.current.getBoundingClientRect().height);
+  }, [itemActive]);
 
   var getIndexLeft = function getIndexLeft(index) {
     return index === 0 ? lastPosition : index - 1;
@@ -84,10 +90,13 @@ function Carousel(_ref) {
     });
   };
 
-  return /*#__PURE__*/_react.default.createElement(_styles.CarouselStyle, null, livesState.map(function (live, index) {
+  return /*#__PURE__*/_react.default.createElement(_styles.CarouselStyle, {
+    height: height
+  }, livesState.map(function (live, index) {
     return /*#__PURE__*/_react.default.createElement(_MiniLive.default, _extends({
       key: live.url
     }, live, {
+      reference: live.position === 'active' ? itemActive : {},
       onClick: function onClick(event) {
         return handleClick(event, index);
       }

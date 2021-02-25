@@ -24,10 +24,12 @@ function MiniLive(_ref) {
       title = _ref.title,
       name = _ref.name,
       game = _ref.game,
-      onClick = _ref.onClick;
+      onClick = _ref.onClick,
+      reference = _ref.reference;
   return /*#__PURE__*/_react.default.createElement(_styles.MiniLiveStyle, {
     position: position,
-    onClick: onClick
+    onClick: onClick,
+    ref: reference
   }, /*#__PURE__*/_react.default.createElement(_styles.WrapperScreen, null, /*#__PURE__*/_react.default.createElement(_StreamerOn.default, {
     avatar: avatar,
     alt: altAvatar
@@ -39,7 +41,8 @@ function MiniLive(_ref) {
 
 MiniLive.defaultProps = {
   position: '',
-  onClick: function onClick() {}
+  onClick: function onClick() {},
+  reference: {}
 };
 MiniLive.propTypes = {
   avatar: _propTypes.default.string.isRequired,
@@ -50,7 +53,8 @@ MiniLive.propTypes = {
   name: _propTypes.default.string.isRequired,
   game: _propTypes.default.string.isRequired,
   position: _propTypes.default.string,
-  onClick: _propTypes.default.func
+  onClick: _propTypes.default.func,
+  reference: _propTypes.default.object
 };
 var _default = MiniLive;
 exports.default = _default;

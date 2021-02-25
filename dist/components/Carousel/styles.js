@@ -13,6 +13,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var CarouselStyle = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  position: relative;\n"])));
+var CarouselStyle = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  position: relative;\n  height: ", ";\n"])), function (_ref) {
+  var height = _ref.height;
+  return "".concat(height, "px");
+});
 
 exports.CarouselStyle = CarouselStyle;
