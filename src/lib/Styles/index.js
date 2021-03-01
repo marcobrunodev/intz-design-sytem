@@ -1,13 +1,13 @@
 import React from 'react'
 import Settings from './Settings'
 import Generic from './Generic'
-import Base from './Elements/Base'
+import Elements from './Elements'
 
 const Styles = () => (
   <>
     <Settings />
     <Generic />
-    <Base />
+    <Elements />
   </>
 )
 
