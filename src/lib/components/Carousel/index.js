@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import MiniLive from '../MiniLive'
 import { CarouselStyle } from './styles'
@@ -11,15 +11,7 @@ function startPositions(lives) {
 
 function Carousel({ lives }) {
   const [livesState, setLivesState] = useState(startPositions(lives))
-  const [height, setHeight] = useState(0)
-  const itemActive = useRef(null)
   const lastPosition = livesState.length - 1
-
-  useEffect(() => {
-    if (itemActive) {
-      setHeight(itemActive.current.getBoundingClientRect().height)
-    }
-  }, [])
 
   const getIndexLeft = (index) => (index === 0 ? lastPosition : index - 1)
 
@@ -42,12 +34,11 @@ function Carousel({ lives }) {
   }
 
   return (
-    <CarouselStyle height={height}>
+    <CarouselStyle>
       {livesState.map((live, index) => (
         <MiniLive
           key={live.url}
           {...live}
-          reference={live.position === 'active' ? itemActive : {}}
           onClick={(event) => handleClick(event, index)}
         />
       ))}
