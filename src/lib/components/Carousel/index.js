@@ -16,8 +16,10 @@ function Carousel({ lives }) {
   const lastPosition = livesState.length - 1
 
   useEffect(() => {
-    setHeight(itemActive.current.getBoundingClientRect().height)
-  }, [itemActive])
+    if (itemActive) {
+      setHeight(itemActive.current.getBoundingClientRect().height)
+    }
+  }, [])
 
   const getIndexLeft = (index) => (index === 0 ? lastPosition : index - 1)
 
