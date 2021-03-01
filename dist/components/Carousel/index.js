@@ -66,8 +66,10 @@ function Carousel(_ref) {
   var itemActive = (0, _react.useRef)(null);
   var lastPosition = livesState.length - 1;
   (0, _react.useEffect)(function () {
-    setHeight(itemActive.current.getBoundingClientRect().height);
-  }, [itemActive]);
+    if (itemActive) {
+      setHeight(itemActive.current.getBoundingClientRect().height);
+    }
+  }, []);
 
   var getIndexLeft = function getIndexLeft(index) {
     return index === 0 ? lastPosition : index - 1;
